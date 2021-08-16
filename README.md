@@ -15,8 +15,7 @@
  
 <h4>项目组件</h4>
 <ul>
-	<li>选用 Spring Boot 自动配置，Spring MVC 作为框
-架，Tomcat 作为 Servlet 容器。
+	<li>选用 Spring Boot 自动配置，Spring MVC 作为框架，Tomcat 作为 Servlet 容器。
 </li>
 	<li>数据存储使用 MySQL，ORM 使用MyBatis</li>
 </ul>
