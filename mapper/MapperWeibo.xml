@@ -1,0 +1,75 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 和 java mapper 的类名一样，从包名开始打，有自动补全-->
+<mapper namespace="web23.web20.mapper.MapperWeibo">
+
+
+    <select id="commentsFromWeibo" resultType="web23.web20.model.Comment">
+        SELECT *
+        FROM comment
+        WHERE weiboId = #{weiboId}
+    </select>
+
+    <resultMap id="currentUserWeibosWithCommentsResultMap" type="web23.web20.model.WeiboWithComments">
+        <id property="id" column="weibo_id"/>
+        <result property="content" column="weibo_content"/>
+        <result property="userId" column="weibo_user_id"/>
+        <collection property="comments" ofType="web23.web20.model.Comment" >
+            <id property="id" column="comment_id"/>
+            <result property="content" column="comment_content"/>
+            <result property="userId" column="comment_user_id"/>
+            <result property="weiboId" column="comment_weibo_id"/>
+        </collection>
+    </resultMap>
+
+    <select id="currentUserWeibosWithComments" resultMap="currentUserWeibosWithCommentsResultMap">
+        SELECT
+                weibo.id as weibo_id,
+                weibo.content as weibo_content,
+                weibo.userId as weibo_user_id,
+                comment.id as comment_id,
+                comment.content as comment_content,
+                comment.weiboId as comment_weibo_id,
+                comment.userId as comment_user_id
+        FROM weibo
+                       JOIN comment ON comment.weiboId = weibo.id
+        WHERE weibo.userId = #{userId}
+    </select>
+
+    <resultMap id="currentUserWeibosWithCommentsResultMap2" type="web23.web20.model.Weibo">
+        <id property="id" column="weibo_id"/>
+        <result property="content" column="weibo_content"/>
+        <result property="userId" column="weibo_user_id"/>
+        <collection property="oldComments" ofType="web23.web20.model.Comment"  >
+            <id property="id" column="comment_id" />
+            <result property="content" column="comment_content"/>
+            <result property="userId" column="comment_user_id" />
+            <result property="weiboId" column="comment_weibo_id" />
+        </collection>
+    </resultMap>
+
+    <select id="getAllWeibos" resultType="web23.web20.model.Weibo">
+         SELECT
+             *
+        FROM weibo
+
+    </select>
+
+    <select id="getWeiboByWeiboId" resultType="web23.web20.model.Weibo">
+         SELECT
+                id,
+                content,
+                userId
+        FROM weibo
+        WHERE id = #{weiboId}
+    </select>
+
+    <insert id="commentAdd">
+        INSERT INTO comment (content,  weiboId, userId) VALUES (#{comment},#{weiboId},#{userId})
+    </insert>
+
+    <insert id="add">
+        INSERT INTO weibo (content, userId) VALUES (#{content}, #{userId})
+    </insert>
+</mapper>

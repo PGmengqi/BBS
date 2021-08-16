@@ -1,0 +1,252 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
+<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]>    <html class="lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+
+<head>
+    <!-- META TAGS -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>论坛功能</title>
+
+    <link rel="shortcut icon" href="images/favicon.png" />
+
+    <!-- Style Sheet-->
+    <#--    <link rel="stylesheet" href="style.css"/>-->
+    <link rel='stylesheet' id='bootstrap-css-css'  href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
+    <#--    <link rel='stylesheet' id='responsive-css-css'  href='css/responsive5152.css?ver=1.0' type='text/css' media='all' />-->
+    <#--    <link rel='stylesheet' id='pretty-photo-css-css'  href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />-->
+    <link rel='stylesheet' id='main-css-css'  href='css/main5152.css?ver=1.0' type='text/css' media='all' />
+    <#--    <link rel='stylesheet' id='custom-css-css'  href='css/custom5152.html?ver=1.0' type='text/css' media='all' />-->
+    <link href="bootstrap.min.css" rel="stylesheet">
+    <link href="clean-blog.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<!-- Start of Header -->
+<div class="header-wrapper">
+    <header>
+        <div class="container">
+
+
+            <div class="logo-container">
+                <!-- Website Logo -->
+                <a   title="Knowledge Base Theme">
+                    <img src="images/logo.png" alt="Knowledge Base Theme">
+                </a>
+                <span class="tag-line">畅所欲言</span>
+            </div>
+
+
+            <!--标题上的各种目录：登录、注册、论坛、按钮
+-->
+            <nav class="main-nav">
+                <div class="menu-top-menu-container">
+                    <ul id="menu-top-menu" class="clearfix">
+                        <li class="current-menu-item"><a href="/">论坛</a></li>
+                        <li><a href="/functions">论坛功能</a></li>
+                        <li><a href="/login">登录</a></li>
+                        <li><a href="/register">注册</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+            <!-- 标题目录结束 -->
+
+        </div>
+    </header>
+</div>
+<!-- 上面那层黑色标题栏结束 -->
+
+<!-- 彩色框，hello那部分 -->
+
+<!-- 彩色框，hello那部分结束 -->
+
+
+<!-- Start of Page Container -->
+<div class="container">
+
+    <article>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 blogbody">
+                <div class="md-content bigsize"><h1>论坛功能</h1>
+                    <h2>骨架</h2>
+                    <p>已实现:</p>
+                    <ul>
+                        <li>基于 bootscript 搭建漂亮的主题。</li>
+                        <li>在看不见 navbar 的地方，上滑显示 navbar。动画效果。</li>
+                        <li>时间按秒更新</li>
+                    </ul>
+                    <h2>User</h2>
+                    <p>已实现：</p>
+                    <ul>
+                        <li>数据用 MongoDB 储存。</li>
+                        <li>注册和登陆基本
+                            <ul>
+                                <li>注册和登陆页面。</li>
+                                <li>字数等基础限制。</li>
+                                <li>密码加密存储。</li>
+                            </ul>
+                        </li>
+                        <li>session 保存登陆状态。</li>
+                        <li>任意页面点击登陆/注册，登陆/注册后跳转回之前页面。
+                            <ul>
+                                <li>从登陆页面进入注册页面，也会跳转到登陆之前页面。</li>
+                            </ul>
+                        </li>
+                        <li>导航栏根据是否登陆动态调整。</li>
+                    </ul>
+                    <p>todo:</p>
+                    <ul>
+                        <li><s>个人页面的细化与美化。</s></li>
+                        <li><s>验证用户名、密码规则。</s></li>
+                        <li><s>用户间的私信功能。</s></li>
+                        <li>登录失败的细化。</li>
+                        <li><s>头像</s></li>
+                    </ul>
+                    <h2>BBS</h2>
+                    <p>已实现：</p>
+                    <ul>
+                        <li>数据用 MongoDB 储存。</li>
+                        <li>时间：是以 epoch 开始以秒为单位的float数值的形式保存的。显示的时候在前端用 Javascript 转化为易读的形式。</li>
+                        <li>主页：显示主题的标题、回复数量、点击数量、最近活动。</li>
+                        <li>主题
+                            <ul>
+                                <li>与用户关联。</li>
+                                <li>用支持 markdown 的编辑器发主题。</li>
+                                <li>使用 Javascript 将帖子内容由 markdown 转换，显示主题内容。</li>
+                                <li>发帖时间，最近活动时间。</li>
+                                <li>点击数。</li>
+                                <li>回复数。</li>
+                            </ul>
+                        </li>
+                        <li>回复
+                            <ul>
+                                <li>根据是否登陆动态显示回复框或提示登陆的按钮。</li>
+                                <li><strong>发送新回复的请求用 AJAX 实现</strong>，并在当前页回复列表的最后，即回复框上方显示新回复。</li>
+                                <li>不管是新回复还是回复列表，都支持 markdown 格式。</li>
+                                <li><strong>用 AJAX 做分页</strong>。</li>
+                                <li><em>NEW</em> <strong>载入、换页、新回复，全部用 AJAX 实现。</strong></li>
+                                <li>换页回到页头动画。</li>
+                            </ul>
+                        </li>
+                        <li>面板
+                            <ul>
+                                <li>基本完成</li>
+                                <li>论坛主页主题可以按面板分类</li>
+                                <li>管理员用户页可以增加面板，同样有动画</li>
+                                <li>帖子页管理员可以将之移动到其他面板,并自动回复以告知</li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </article>
+
+</div>
+<!-- End of Page Container -->
+
+<!-- Start of Footer -->
+<footer id="footer-wrapper">
+    <div id="footer" class="container">
+        <div class="row">
+
+            <div class="span3">
+                <section class="widget">
+                    <h3 class="title">How it works</h3>
+                    <div class="textwidget">
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+                        <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. </p>
+                    </div>
+                </section>
+            </div>
+
+            <div class="span3">
+                <section class="widget"><h3 class="title">Categories</h3>
+                    <ul>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Advanced Techniques</a> </li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Server &amp; Database</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet, ">Theme Development</a></li>
+                        <li><a href="#" title="Lorem ipsum dolor sit amet,">Website Dev</a></li>
+                    </ul>
+                </section>
+            </div>
+
+            <div class="span3">
+                <section class="widget">
+                    <h3 class="title">Latest Tweets</h3>
+                    <div id="twitter_update_list">
+                        <ul>
+                            <li>No Tweets loaded !</li>
+                        </ul>
+                    </div>
+
+                </section>
+            </div>
+
+            <div class="span3">
+                <section class="widget">
+                    <h3 class="title">Flickr Photos</h3>
+                    <div class="flickr-photos" id="basicuse">
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+    <!-- end of #footer -->
+
+    <!-- Footer Bottom -->
+    <div id="footer-bottom-wrapper">
+        <div id="footer-bottom" class="container">
+            <div class="row">
+                <div class="span6">
+                    <p class="copyright">
+
+                    </p>
+                </div>
+                <div class="span6">
+                    <!-- Social Navigation -->
+                    <ul class="social-nav clearfix">
+                        <li class="linkedin"><a target="_blank"></a></li>
+                        <li class="stumble"><a target="_blank" ></a></li>
+                        <li class="google"><a target="_blank" ></a></li>
+                        <li class="deviantart"><a target="_blank" ></a></li>
+                        <li class="flickr"><a target="_blank"></a></li>
+                        <li class="skype"><a target="_blank" ></a></li>
+                        <li class="rss"><a target="_blank" ></a></li>
+                        <li class="twitter"><a target="_blank" ></a></li>
+                        <li class="facebook"><a target="_blank"></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End of Footer Bottom -->
+
+</footer>
+<!-- End of Footer -->
+
+<a href="#top" id="scroll-top"></a>
+
+
+
+<style>
+    .copyrights{text-indent:-9999px;height:0;line-height:0;font-size:0;overflow:hidden;}
+</style>
+<div class="copyrights" id="links20210126">
+    Collect from <a href="http://www.cssmoban.com/"  title="网站模板">模板之家</a>
+    <a href="https://www.chazidian.com/"  title="查字典">查字典</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 和 java mapper 的类名一样，从包名开始打，有自动补全-->
+<mapper namespace="web23.web20.mapper.MapperUser">
+
+    <select id="getAllUsers" resultType="web23.web20.model.User">
+        SELECT * FROM user
+    </select>
+
+    <insert id="insertIntoUser">
+        INSERT INTO user( username, password, role, salt) values ( #{username}, #{password}, #{role}, #{salt})
+    </insert>
+
+    <select id="getAllSessions" resultType="web23.web20.model.Session">
+        select * from session
+    </select>
+    <insert id="insertIntoSession">
+        INSERT INTO session (id, username) values (#{id}, #{username})
+    </insert>
+</mapper>
